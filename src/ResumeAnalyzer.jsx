@@ -1,7 +1,25 @@
-import React from 'react';
+import Overview from './components/Overview';
+import ResumeForm from './components/ResumeForm';
 
-const ResumeAnalyzer = () => {
-  return <h1>Resume Analyzer Page</h1>;
-};
+function ResumeAnalyzer({userInfo, onFormSubmit}) {
+  const placeholderImageUrl = 'https://picsum.photos/seed/career-pathway/600/400';
+
+  return (
+    <div className="resumeAnalyzerContainer">
+      <Overview
+        title="Resume Analyzer"
+        description="Your personal career journey assistant. Navigate through different sections using the side menu."
+        imageSlot={
+          <img
+            src={placeholderImageUrl}
+            alt="A random placeholder image representing a project"
+            className="overview-image"
+          />
+        }
+      />
+      <ResumeForm onFormSubmit={onFormSubmit} />
+    </div>
+  );
+}
 
 export default ResumeAnalyzer;

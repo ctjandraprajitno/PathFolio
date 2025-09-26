@@ -1,0 +1,9 @@
+body{
+  margin: 1% 2%;
+}
+
+.appHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

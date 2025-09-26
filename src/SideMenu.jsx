@@ -1,29 +1,30 @@
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import styles from './SideMenu.module.css';
+import './SideMenu.css';
 
 const SideMenu = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Overlay that closes the menu when clicked */}
       <div
-        className={clsx(styles.overlay, { [styles.overlayOpen]: isOpen })}
+        className={clsx('overlay', { 'overlayOpen': isOpen })}
         onClick={onClose}
       />
-      <nav className={clsx(styles.menuContainer, { [styles.menuOpen]: isOpen })}>
-        <button className={styles.closeButton} onClick={onClose} aria-label="Close menu">
+      {/* Menu container */}
+      <nav className={clsx('menuContainer', { 'menuOpen': isOpen })}>
+        <button className="closeButton" onClick={onClose} aria-label="Close menu">
           &times;
         </button>
-        <ul className={styles.menuLinks}>
+        <ul className="menuLinks">
           <li>
             <Link to="/" onClick={onClose}>Home</Link>
           </li>
           <li>
-            <Link to="/career-pathway" onClick={onClose}>Career Pathway</Link>
+            <Link to="/careerPathway" onClick={onClose}>Career Pathway</Link>
           </li>
           <li>
-            <Link to="/resume-analyzer" onClick={onClose}>Resume Analyzer</Link>
+            <Link to="/resumeAnalyzer" onClick={onClose}>Resume Analyzer</Link>
           </li>
         </ul>
       </nav>

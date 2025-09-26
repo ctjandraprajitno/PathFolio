@@ -1,6 +1,4 @@
-import React from 'react';
 import Overview from './components/Overview';
-import './Home.css';
 
 function Home() {
   const placeholderImageUrl = 'https://picsum.photos/seed/react-app/600/400';

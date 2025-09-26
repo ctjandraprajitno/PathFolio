@@ -9,10 +9,28 @@ import './App.css';
 
 function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    targetJob: '',
+    summary: '',
+    experiences: [],
+    skills: [],
+    educations: []
+  });
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    const newUserInfo = Object.fromEntries(new FormData(event.target));
+    setUserInfo(prev => ({
+      ...prev,
+      ...newUserInfo
+    }));
+    console.log('Form submitted:', newUserInfo);
+  }
+
 
   return (
     <div className="App">
-      <header className="app-header">
+      <header className="appHeader">
         <HamburgerButton onClick={() => setMenuOpen(true)} />
         <h1>PathFolio</h1>
       </header>
@@ -22,8 +40,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/career-pathway" element={<CareerPathway />} />
-          <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
+          <Route path="/resumeAnalyzer" element={<ResumeAnalyzer onFormSubmit={handleFormSubmit} />} />
+          <Route path="/careerPathway" element={<CareerPathway />} />
         </Routes>
       </main>
     </div>
