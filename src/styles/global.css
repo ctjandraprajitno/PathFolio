@@ -1,0 +1,75 @@
+/* Global styles for PathFolio - single-file baseline styling */
+
+:root {
+  --bg: #f7fafc; /* very light */
+  --card: #ffffff;
+  --muted: #6b7280; /* cool gray */
+  --accent: #06b6d4; /* teal */
+  --accent-2: #3b82f6; /* blue */
+  --text: #0f1724; /* dark text */
+  --radius: 10px;
+  --max-width: 1000px;
+}
+
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, var(--bg) 0%, #eef2f7 100%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding: 24px;
+}
+
+.app-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.overview-image { width: 100%; height: auto; border-radius: 8px; }
+
+.resumeAnalyzerContainer {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+  align-items: start;
+}
+
+.resume-form, .resume-preview {
+  background: var(--card);
+  border: 1px solid rgba(15,23,36,0.06);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(15,23,36,0.06);
+}
+
+form.resume-form label { display:block; margin-bottom:8px; font-size:14px; color:var(--muted); }
+form.resume-form input[type="text"],
+form.resume-form textarea {
+  width:100%;
+  padding:8px 10px;
+  border-radius:6px;
+  background: #f8fafc;
+  border: 1px solid rgba(15,23,36,0.06);
+  color: var(--text);
+  resize: vertical;
+}
+
+button { 
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:active { transform: translateY(1px); }
+
+.resume-preview pre { background: #f1f5f9; padding: 12px; border-radius:6px; overflow:auto; color: var(--text); }
+
+@media (max-width: 900px) {
+  .resumeAnalyzerContainer { grid-template-columns: 1fr; }
+}
