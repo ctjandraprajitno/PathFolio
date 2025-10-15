@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HamburgerButton from './components/HamburgerButton';
-import SideMenu from './SideMenu';
-import Home from './home';
-import CareerPathway from './CareerPathway';
-import ResumeAnalyzer from './ResumeAnalyzer';
-import './App.css';
+import SideMenu from './components/SideMenu';
+import Home from './components/Home';
+import CareerPathway from './components/CareerPathway';
+import ResumeAnalyzer from './components/ResumeAnalyzer';
+import './styles/App.css';
 
 function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);

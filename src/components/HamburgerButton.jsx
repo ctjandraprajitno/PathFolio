@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './HamburgerButton.module.css';
+import styles from '../styles/HamburgerButton.module.css';
 const HamburgerButton = ({ onClick }) => {
   return (
     <button className={styles.hamburger} onClick={onClick} aria-label="Open menu">

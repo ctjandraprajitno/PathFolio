@@ -1,4 +1,4 @@
-import Overview from './components/Overview';
+import Overview from './Overview';
 
 function CareerPathway() {
   const placeholderImageUrl = 'https://picsum.photos/seed/career-pathway/600/400';

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './Overview.module.css';
+import styles from '../styles/Overview.module.css';
 
 
 // A modular two-column overview component with a text section and an image slot.

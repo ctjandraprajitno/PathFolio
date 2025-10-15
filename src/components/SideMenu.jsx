@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import './sideMenu.css';
+import '../styles/sideMenu.css';
 
 const SideMenu = ({ isOpen, onClose }) => {
   return (

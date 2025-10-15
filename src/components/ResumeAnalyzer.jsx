@@ -1,7 +1,7 @@
-import Overview from './components/Overview';
-import ResumeForm from './components/ResumeForm';
+import Overview from './Overview';
+import ResumeForm from './ResumeForm';
 
-function ResumeAnalyzer({userInfo, onFormSubmit}) {
+function ResumeAnalyzer({ onFormSubmit }) {
   const placeholderImageUrl = 'https://picsum.photos/seed/career-pathway/600/400';
 
   return (
