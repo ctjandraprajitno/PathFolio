@@ -34,8 +34,13 @@ function App() {
   return (
     <div className="App">
       <header className="appHeader">
-        <HamburgerButton onClick={() => setMenuOpen(true)} />
-        <h1>PathFolio</h1>
+        <div className='header1'>
+          <HamburgerButton onClick={() => setMenuOpen(true)} />
+          <h1>PathFolio</h1>
+        </div>
+        <div className='header2'>
+          
+        </div>
       </header>
 
       <SideMenu isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />

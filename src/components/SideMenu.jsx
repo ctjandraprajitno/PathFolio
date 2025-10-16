@@ -21,10 +21,10 @@ const SideMenu = ({ isOpen, onClose }) => {
             <Link to="/" onClick={onClose}>Home</Link>
           </li>
           <li>
-            <Link to="/careerPathway" onClick={onClose}>Career Pathway</Link>
+            <Link to="/resumeAnalyzer" onClick={onClose}>Resume Analyzer</Link>
           </li>
           <li>
-            <Link to="/resumeAnalyzer" onClick={onClose}>Resume Analyzer</Link>
+            <Link to="/careerPathway" onClick={onClose}>Career Pathway</Link>
           </li>
         </ul>
       </nav>
