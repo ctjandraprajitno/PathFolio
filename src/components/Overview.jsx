@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-import styles from '../styles/Overview.module.css';
+import '../styles/Overview.css';
 
 
 // A modular two-column overview component with a text section and an image slot.
 const Overview = ({ title, description, imageSlot }) => {
   return (
-    <section className={styles.container}>
-      <div className={styles.textColumn}>
-        <h2 className={styles.title}>{title}</h2>
-        <p className={styles.description}>{description}</p>
+    <section className="container">
+      <div className="textColumn">
+        <h2 className="title">{title}</h2>
+        <p className="description">{description}</p>
       </div>
-      <div className={styles.imageColumn}>{imageSlot}</div>
+      <div className="imageColumn">{imageSlot}</div>
     </section>
   );
 };

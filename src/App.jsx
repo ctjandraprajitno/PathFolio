@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import HamburgerButton from './components/HamburgerButton';
 import SideMenu from './components/SideMenu';
 import Home from './components/Home';
 import CareerPathway from './components/CareerPathway';
 import ResumeAnalyzer from './components/ResumeAnalyzer';
+import ResumeConfirm from './components/ResumeConfirm';
+import ResumePreview from './components/ResumePreview';
 import './styles/App.css';
 
 function App() {
@@ -16,15 +18,16 @@ function App() {
     skills: [],
     educations: []
   });
+  const navigate = useNavigate();
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    const newUserInfo = Object.fromEntries(new FormData(event.target));
+  function handleFormSubmit(newUserInfo) {
     setUserInfo(prev => ({
       ...prev,
       ...newUserInfo
     }));
     console.log('Form submitted:', newUserInfo);
+    // Navigate to the preview page after submission
+    navigate('/ResumePreview');
   }
 
 
@@ -40,8 +43,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/resumeAnalyzer" element={<ResumeAnalyzer onFormSubmit={handleFormSubmit} />} />
-          <Route path="/careerPathway" element={<CareerPathway />} />
+          <Route path="/ResumeAnalyzer" element={<ResumeAnalyzer />} />
+          <Route path="/CareerPathway" element={<CareerPathway />} />
+          <Route path="/ResumeConfirm" element={<ResumeConfirm onFormSubmit={handleFormSubmit} userInfo={userInfo} />} />
+          <Route path="/ResumePreview" element={<ResumePreview userInfo={userInfo} />} />
         </Routes>
       </main>
     </div>

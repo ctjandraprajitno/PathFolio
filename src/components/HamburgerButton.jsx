@@ -1,12 +1,11 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/HamburgerButton.module.css';
+import '../styles/HamburgerButton.css';
 const HamburgerButton = ({ onClick }) => {
   return (
-    <button className={styles.hamburger} onClick={onClick} aria-label="Open menu">
-      <span className={styles.bar}></span>
-      <span className={styles.bar}></span>
-      <span className={styles.bar}></span>
+    <button className="hamburger" onClick={onClick} aria-label="Open menu">
+      <span className="bar"></span>
+      <span className="bar"></span>
+      <span className="bar"></span>
     </button>
   );
 };

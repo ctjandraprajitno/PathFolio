@@ -1,7 +1,8 @@
+import {Link} from 'react-router-dom';
 import Overview from './Overview';
-import ResumeForm from './ResumeForm';
+import '../styles/Button.css';
 
-function ResumeAnalyzer({ onFormSubmit }) {
+function ResumeAnalyzer() {
   const placeholderImageUrl = 'https://picsum.photos/seed/career-pathway/600/400';
 
   return (
@@ -17,7 +18,7 @@ function ResumeAnalyzer({ onFormSubmit }) {
           />
         }
       />
-      <ResumeForm onFormSubmit={onFormSubmit} />
+      <Link id="button" to="/ResumeConfirm">Analyze my resume!</Link>
     </div>
   );
 }
