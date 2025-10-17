@@ -1,25 +1,16 @@
-import {Link} from 'react-router-dom';
-import Overview from './Overview';
+import FeatureCard from './FeatureCard';
 import '../styles/Button.css';
 
 function ResumeAnalyzer() {
   const placeholderImageUrl = 'https://picsum.photos/seed/career-pathway/600/400';
 
   return (
-    <div className="resumeAnalyzerContainer">
-      <Overview
+      <FeatureCard
         title="Resume Analyzer"
         description="Your personal career journey assistant. Navigate through different sections using the side menu."
-        imageSlot={
-          <img
-            src={placeholderImageUrl}
-            alt="A random placeholder image representing a project"
-            className="overview-image"
-          />
-        }
+        destination="/ResumeConfirm"
+        children="Analyze my resume!"
       />
-      <Link id="button" to="/ResumeConfirm">Analyze my resume!</Link>
-    </div>
   );
 }
 

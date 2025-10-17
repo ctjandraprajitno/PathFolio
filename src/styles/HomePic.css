@@ -1,0 +1,25 @@
+.home-pic-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 250px;
+  width: auto;
+}
+
+.left{
+  z-index: 0;
+  transform: rotate(-15deg) translateY(30%) translatex(25%);
+  scale: 1.05;
+}
+
+.middle{
+  border: 8px solid black;
+  border-radius: 5%;
+  z-index: 1;
+  transform: rotate(0deg);
+}
+
+.right{
+  z-index: 0;
+  transform: rotate(15deg) translateY(-12%) translateX(-50%);
+}

@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import '../styles/sideMenu.css';
+import '../styles/SideMenu.css';
 
 const SideMenu = ({ isOpen, onClose }) => {
   return (
@@ -21,10 +21,10 @@ const SideMenu = ({ isOpen, onClose }) => {
             <Link to="/" onClick={onClose}>Home</Link>
           </li>
           <li>
-            <Link to="/resumeAnalyzer" onClick={onClose}>Resume Analyzer</Link>
+            <Link to="/ResumeConfirm" onClick={onClose}>Resume Analyzer</Link>
           </li>
           <li>
-            <Link to="/careerPathway" onClick={onClose}>Career Pathway</Link>
+            <Link to="/CareerPathwayMain" onClick={onClose}>Career Pathway</Link>
           </li>
         </ul>
       </nav>

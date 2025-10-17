@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import HamburgerButton from './components/HamburgerButton';
 import SideMenu from './components/SideMenu';
-import Home from './components/Home';
-import CareerPathway from './components/CareerPathway';
-import ResumeAnalyzer from './components/ResumeAnalyzer';
-import ResumeConfirm from './components/ResumeConfirm';
-import ResumePreview from './components/ResumePreview';
+import Home from './pages/Home';
+import CareerPathwayMain from './pages/CareerPathwayMain';
+import ResumeConfirm from './pages/ResumeConfirm';
+import ResumePreview from './pages/ResumePreview';
 import './styles/App.css';
 
 function App() {
@@ -48,8 +47,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ResumeAnalyzer" element={<ResumeAnalyzer />} />
-          <Route path="/CareerPathway" element={<CareerPathway />} />
+          <Route path="/CareerPathwayMain" element={<CareerPathwayMain />} />
           <Route path="/ResumeConfirm" element={<ResumeConfirm onFormSubmit={handleFormSubmit} userInfo={userInfo} />} />
           <Route path="/ResumePreview" element={<ResumePreview userInfo={userInfo} />} />
         </Routes>
