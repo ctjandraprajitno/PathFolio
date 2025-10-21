@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import '../styles/SideMenu.css';
+
 function SideMenu({ isOpen, onClose }) {
   return (
     <>
@@ -29,6 +30,7 @@ function SideMenu({ isOpen, onClose }) {
       </nav>
     </>
   );
+};
 }
 
 SideMenu.propTypes = {
