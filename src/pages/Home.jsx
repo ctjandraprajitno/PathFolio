@@ -1,12 +1,10 @@
 import Overview from '../components/Overview.jsx';
-import ResumeAnalyzer from '../components/ResumeAnalyzer.jsx';
-import CareerPathway from '../components/CareerPathway.jsx';
+import FeatureCard from '../components/FeatureCard.jsx';
 import HomePic from '../components/HomePic.jsx';
 import '../styles/Home.css';
+import '../styles/Button.css';
 
 function Home() {
-  const placeholderImageUrl = 'https://picsum.photos/seed/react-app/600/400';
-
   return (
     <>
       <div className="home-container">
@@ -19,8 +17,18 @@ function Home() {
         />
       </div>
       <div className="feature-container">
-        <ResumeAnalyzer />
-        <CareerPathway />
+        <FeatureCard
+          title="Resume Analyzer"
+          description="Your personal career journey assistant. Navigate through different sections using the side menu."
+          destination="/ResumeConfirm"
+          children="Analyze my resume!"
+        />
+        <FeatureCard
+          title="Career Pathway"
+          description="Your personal career journey assistant. Navigate through different sections using the side menu."
+          destination="/CareerPathwayMain"
+          children="Find my pathway!"
+        />
       </div>
     </>
   );

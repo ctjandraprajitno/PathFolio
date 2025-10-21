@@ -4,7 +4,7 @@ import '../styles/FeatureCard.css';
 import '../styles/Button.css';
 
 
-const FeatureCard = ({ title, description, destination, children }) => {
+function FeatureCard({ title, description, destination, children }) {
   return (
     <section className="feature-card">
       <h2 className="feature-card-title">{title}</h2>
@@ -12,7 +12,7 @@ const FeatureCard = ({ title, description, destination, children }) => {
       <Link className="btn" to={destination}>{children}</Link>
     </section>
   );
-};
+}
 
 // Ensure props have the correct datatype and are required.
 FeatureCard.propTypes = {

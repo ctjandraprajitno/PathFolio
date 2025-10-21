@@ -3,7 +3,7 @@ import '../styles/Overview.css';
 
 
 // A modular two-column overview component with a text section and an image slot.
-const Overview = ({ title, description, imageSlot }) => {
+function Overview({ title, description, imageSlot }) {
   return (
     <section className="container">
       <div className="textColumn">
@@ -13,7 +13,7 @@ const Overview = ({ title, description, imageSlot }) => {
       <div className="imageColumn">{imageSlot}</div>
     </section>
   );
-};
+}
 
 // Ensure props have the correct datatype and are required.
 Overview.propTypes = {

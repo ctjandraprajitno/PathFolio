@@ -1,53 +1,84 @@
-/* Reset some default browser styles */
-body, h1, h2, h3, p, ul, li {
-  margin: 0;
-  padding: 0;
+/* Global reset + minimal design tokens */
+/* Use a comfortable base font size for better typographic scale */
+:root {
+  --bg: #fafafa;
+  --card: #ffffff;
+  --muted: #6b7280; /* gray-500 */
+  --text: #111827; /* gray-900 */
+  --border: #e6e6e6;
+  --accent: #0f172a; /* near-black accent */
+  --radius: 8px;
+  --gap: 16px;
 }
 
+/* Box-sizing and reset */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+body, h1, h2, h3, h4, p, ul, li { margin: 0; padding: 0; }
+
+/* Base layout and typography */
+html { font-size: 16px; }
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 1% 2%;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Remove underlines from links */
-a {
-  text-decoration: none;
-  color: inherit; /* Inherit color from parent */
-}
+/* Links inherit color but get a subtle underline on hover */
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-/* Remove default list styling */
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
 
-/* Ensure images are responsive */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block; /* Remove extra space below images */
-}
+textarea { font-family: inherit; }
 
-/* Box-sizing for easier layout */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* App container */
+.App { max-width: 1100px; margin: 0 auto; }
 
-textarea {
-  font-family: inherit; /* Inherit font from body */
-  resize: none; /* Disable resizing */
-}
-
+/* Header */
 .appHeader{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--gap);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+.header1{ display:flex; align-items:center; gap: 18px; }
+.appHeader h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.2px; }
+
+main { padding: 12px 0 48px; }
+
+/* Cards / containers */
+.card, .resume-preview { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+
+/* Small utilities */
+.muted { color: var(--muted); }
+.mb { margin-bottom: 12px; }
+
+/* Ensure form controls look minimal and consistent */
+input[type="text"], textarea, select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  font-size: 0.95rem;
 }
 
-.header1{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  html { font-size: 15px; }
+  .App { padding: 0 12px; }
+  .appHeader { padding: 8px 0; }
+}
+
+@media (max-width: 420px) {
+  html { font-size: 14px; }
 }

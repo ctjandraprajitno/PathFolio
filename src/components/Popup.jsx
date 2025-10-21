@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Popup = ({ children, onClose }) => {
+function Popup({ children, onClose }) {
 	if (!children) return null;
 	return (
 		<div className="popup">
@@ -10,6 +10,6 @@ const Popup = ({ children, onClose }) => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default Popup;

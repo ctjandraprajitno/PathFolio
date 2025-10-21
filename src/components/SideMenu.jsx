@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import '../styles/SideMenu.css';
 
-const SideMenu = ({ isOpen, onClose }) => {
+function SideMenu({ isOpen, onClose }) {
   return (
     <>
       {/* Overlay that closes the menu when clicked */}

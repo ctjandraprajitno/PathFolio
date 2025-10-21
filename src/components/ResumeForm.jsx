@@ -1,4 +1,5 @@
 import Button from './Button';
+import '../styles/ResumeForm.css';
 
 function ResumeForm({
   onFormSubmit,
@@ -14,11 +15,12 @@ function ResumeForm({
       </div>
       <div>
         <label htmlFor="summary">Summary:</label>
-        <textarea type="text" id="summary" name="summary" defaultValue={initialData.summary || ''} />
+        <textarea className="full-width" type="text" id="summary" name="summary" defaultValue={initialData.summary || ''} />
       </div>
       <div>
         <label htmlFor="experiences">Experience(s):</label>
-        <textarea type="text" id="experiences" name="experiences" defaultValue={initialData.experiences || ''} />
+        <p className="input-hint">Format: Role, Company, Description. Separate multiple entries with a semicolon (;).</p>
+        <textarea className="full-width" type="text" id="experiences" name="experiences" defaultValue={initialData.experiences || ''} />
       </div>
       <div>
         <label htmlFor="skills">Skill(s):</label>
@@ -26,7 +28,8 @@ function ResumeForm({
       </div>
       <div>
         <label htmlFor="educations">Education(s):</label>
-        <textarea type="text" id="educations" name="educations" defaultValue={initialData.educations || ''} />
+        <p className="input-hint">Format: Degree, School, Description. Separate multiple entries with a semicolon (;).</p>
+        <textarea className="full-width" type="text" id="educations" name="educations" defaultValue={initialData.educations || ''} />
       </div>
       <Button typeInfo="submit">Save</Button>
     </form>

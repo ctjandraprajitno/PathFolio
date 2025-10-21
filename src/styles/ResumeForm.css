@@ -1,0 +1,68 @@
+/* Minimal, clean form styles for ResumeForm component */
+
+.resume-form {
+  max-width: 800px;
+  margin: 16px auto;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  align-items: start;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.resume-form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+  font-size: 0.95rem;
+}
+
+.resume-form input[type="text"],
+.resume-form textarea {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  background: #fafafa;
+  font-size: 0.95rem;
+  color: #111;
+  resize: vertical;
+}
+
+.resume-form textarea { min-height: 72px; }
+
+.resume-form .input-hint {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  color: #666;
+}
+
+/* Make the inputs span full width when helpful */
+.resume-form .full-width {
+  grid-column: 1 / -1;
+}
+
+/* Button area spans full width */
+.resume-form button,
+.resume-form .button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 8px;
+}
+
+/* Responsive: single column on small screens */
+@media (max-width: 720px) {
+  .resume-form {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+}
