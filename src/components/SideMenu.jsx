@@ -31,7 +31,6 @@ function SideMenu({ isOpen, onClose }) {
     </>
   );
 };
-}
 
 SideMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,
