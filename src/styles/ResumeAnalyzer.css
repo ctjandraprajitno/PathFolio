@@ -1,0 +1,52 @@
+/* Minimal styles for ResumeAnalyzer suggestion cards and sections */
+
+.resume-preview {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 16px;
+}
+
+.resume-preview section {
+  margin-bottom: 12px;
+}
+
+.analysis-results {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.analysis-results > section {
+  border-top: 2px solid #e6e6e6;
+  padding-top: 12px;
+}
+
+.suggestion-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin: 8px 0;
+}
+
+.suggestion-title {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.suggestion-text,
+.suggestion-justification {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.suggestion-field-value {
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #111827;
+}

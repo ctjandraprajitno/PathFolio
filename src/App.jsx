@@ -34,6 +34,7 @@ function App() {
       ...prev,
       ...newUserInfo
     }));
+    localStorage.setItem('userInfo', JSON.stringify(newUserInfo));
     console.log('Form submitted with new data:', newUserInfo);
     navigate('/ResumeAnalyzer');
   }
@@ -65,7 +66,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ResumeConfirm" element={<ResumeConfirm onFormSubmit={handleFormSubmit} initialData={userInfo} />} />
-          <Route path="/ResumeAnalyzer" element={<ResumeAnalyzer userInfo={userInfo} />} />
+          <Route path="/ResumeAnalyzer" element={<ResumeAnalyzer />} />
           <Route path="/CareerPathwayMain" element={<CareerPathwayMain />} />
         </Routes>
       </main>

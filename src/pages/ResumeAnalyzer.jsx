@@ -1,15 +1,44 @@
 import { useState, useEffect } from 'react';
 import { chatGPTAPICall } from "../lib/chatGPTAPICall";
+import '../styles/ResumeAnalyzer.css';
 
-function ResumeAnalyzer({ userInfo }) {
-  // Create a "box" (state) to hold the analysis results. It starts as an empty object.
+function ResumeAnalyzer({ userInfo: propUserInfo }) {
+
+  // safe read from localStorage
+  function readUserInfoFromStorage() {
+    try {
+      const raw = localStorage.getItem('userInfo');
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) {
+      console.warn('Invalid userInfo in localStorage:', e);
+      return null;
+    }
+  }
+
+  // Prefer the prop (when App passes data). Otherwise fall back to localStorage or defaults.
+  function resolveUserInfo() {
+    if (propUserInfo && Object.keys(propUserInfo).some(function(key) { return propUserInfo[key]; })) {
+      return propUserInfo;
+    }
+    return readUserInfoFromStorage() || {
+      targetJob: '',
+      summary: '',
+      experiences: '',
+      skills: '',
+      educations: ''
+    };
+  }
+
+  const userInfo = resolveUserInfo();
+
+  // Create a state to hold the analysis results. It starts as an empty object.
   const [analysisResults, setAnalysisResults] = useState({});
-  // Create another "box" to know when we are waiting for the AI to respond.
-  const [isLoading, setIsLoading] = useState(true); // Start loading immediately
+
+  // Start as not loading; we'll set to true when an API call is made.
+  const [isLoading, setIsLoading] = useState(false);
 
   // useEffect runs code after the component has rendered.
-  // By passing [userInfo], this code will run once when the component first appears,
-  // and again only if the userInfo prop changes.
   useEffect(function() {
     // This is an "async" function because it needs to "await" the API call.
     async function getAnalysis() {
@@ -28,7 +57,7 @@ function ResumeAnalyzer({ userInfo }) {
     }
 
     getAnalysis(); // Call the function to start the analysis.
-  }, [userInfo]); // The dependency array.
+  }, [propUserInfo]); // run on mount and whenever the prop changes
 
   return (
     <>
@@ -55,37 +84,28 @@ function ResumeAnalyzer({ userInfo }) {
           <p>{userInfo.educations || 'No education provided.'}</p>
         </section>
 
-        <hr />
+        <hr /><br />
 
         <h2>AI Analysis & Suggestions</h2>
         {/* Show a loading message while the AI is working. */}
         {isLoading && <p>Analyzing your resume...</p>}
 
-        {/*
-          Object.keys(analysisResults) gives us an array of the keys (e.g., ['summary', 'experiences']).
-          We check if the array has items to decide if we should show the results.
-        */}
+        {/* Check if the array has items to decide if we should show the results */}
         {!isLoading && Object.keys(analysisResults).length > 0 && (
           <div className="analysis-results">
-            {/*
-              We loop through our analysisResults object.
-              For each entry (like 'summary': [suggestions...]), we create a section.
-            */}
-            {Object.entries(analysisResults).map(function ([section, suggestions]) {
-              // The API might not return a valid array, so we check for that.
-              if (!Array.isArray(suggestions) || suggestions.length === 0) {
-                return null; // Don't render anything if suggestions aren't in the expected format.
-              }
+
+            {Object.entries(analysisResults).map(function (entry) {
+              // entry is a two-item array: [sectionName, suggestionsArray]
+              var section = entry[0];
+              var suggestions = entry[1];
+
               return (
                 <section key={section}>
-                  <h4>{section.charAt(0).toUpperCase() + section.slice(1)} Suggestions</h4>
+                  {/* capitalized first letter */}
+                  <h3>{section.charAt(0).toUpperCase() + section.slice(1)} Suggestions</h3>
                   {suggestions.map(function (suggestion, index) {
                     return (
-                      <div key={index} className="suggestion-card">
-                        <h5>{suggestion.title}</h5>
-                        <p><strong>Suggestion:</strong> {suggestion.suggestion}</p>
-                        <p><strong>Justification:</strong> {suggestion.justification}</p>
-                      </div>
+                      <SuggestionCard key={index} suggestion={suggestion} />
                     );
                   })}
                 </section>
@@ -95,6 +115,22 @@ function ResumeAnalyzer({ userInfo }) {
         )}
       </div>
     </>
+  );
+}
+
+// Simple presentational card for suggestions. Keep it local to this file.
+function SuggestionCard({ suggestion }) {
+  // Store info and check if present assume the AI returns these fields.
+  var title = (suggestion && suggestion.title) ? suggestion.title : 'Miscellaneous';
+  var suggestionText = (suggestion && suggestion.suggestion) ? suggestion.suggestion : '';
+  var justification = (suggestion && suggestion.justification) ? suggestion.justification : '';
+
+  return (
+    <div className="suggestion-card">
+      <h4 className="suggestion-title">{title}</h4>
+      <p className="suggestion-text"><strong>Suggestion:</strong> {suggestionText}</p>
+      <p className="suggestion-justification"><strong>Justification:</strong> {justification}</p>
+    </div>
   );
 }
 
