@@ -65,7 +65,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ResumeConfirm" element={<ResumeConfirm onFormSubmit={handleFormSubmit} initialData={userInfo} />} />
+          <Route path="/ResumeConfirm" element={<ResumeConfirm onFormSubmit={handleFormSubmit} />} />
           <Route path="/ResumeAnalyzer" element={<ResumeAnalyzer />} />
           <Route path="/CareerPathwayMain" element={<CareerPathwayMain />} />
         </Routes>
