@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { chatGPTAPICall } from "../lib/chatGPTAPICall";
+import { chatGPTAPICall } from "../lib/chatGPTAPICallResume";
 import '../styles/ResumeAnalyzer.css';
 
 function ResumeAnalyzer({ userInfo: propUserInfo }) {

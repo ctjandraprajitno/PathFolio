@@ -1,0 +1,91 @@
+.career-pathway-page {
+  padding: 20px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.cp-overview {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.cp-overview-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.cp-target {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.cp-salary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.salary-arrow { color: #666; margin: 0 6px; }
+
+.cp-skills-list { margin-left: 8px; color: #333; }
+
+.cp-timeline { margin-top: 12px; }
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px 4px;
+}
+
+.timeline-step { display: flex; align-items: center; gap: 8px; }
+
+.timeline-card {
+  min-width: 180px;
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  border: 1px solid #e6e6f0;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  cursor: pointer;
+}
+
+.timeline-job { font-weight: 600; margin-bottom: 6px; }
+.timeline-skills { color: #444; font-size: 13px; }
+
+.timeline-connector { color: #888; font-size: 22px; margin: 0 6px; }
+
+/* modal */
+.cp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.cp-modal {
+  width: min(720px, 92%);
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.cp-modal-actions { margin-top: 12px; text-align: right; }
+
+.cp-notes { margin-top: 10px; color: #333; }
+
+/* small responsive tweaks */
+@media (max-width: 640px) {
+  .cp-overview-row { flex-direction: column; align-items: flex-start; }
+  .timeline-card { min-width: 220px; }
+}

@@ -1,0 +1,21 @@
+.single-input-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.single-input-box {
+  background: #fff;
+  padding: 18px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.single-input-box h3 { margin-top: 0; }
+.single-input-field { width: 100%; padding: 8px; font-size: 14px; border-radius: 4px; border: 1px solid #ddd; }
+.single-input-actions { margin-top: 10px; text-align: right; }
+.single-input-save { padding: 8px 12px; background: #333; color: #fff; border: none; border-radius: 6px; }
