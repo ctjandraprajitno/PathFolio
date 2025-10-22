@@ -25,3 +25,6 @@ dist-ssr
 
 # API KEYS and other sensitive files
 .env
+
+#test data
+testData.txt
