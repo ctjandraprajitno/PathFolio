@@ -3,10 +3,10 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import HamburgerButton from './components/HamburgerButton';
 import SideMenu from './components/SideMenu';
 import Home from './pages/Home';
+import './styles/App.css';
 import CareerPathwayMain from './pages/CareerPathwayMain';
 import ResumeConfirm from './pages/ResumeConfirm';
 import ResumeAnalyzer from './pages/ResumeAnalyzer';
-import './styles/App.css';
 import SingleInputPopup from './components/SingleInputPopup';
 
 function App() {
