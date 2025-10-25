@@ -10,7 +10,8 @@ export default function SingleInputPopup(props) {
 	var label = props.label;
 	var initialValue = props.initialValue;
 	var storageType = props.storageType; // 'currentJob' or 'targetJob'
-	var onSaved = props.onSaved;
+	const onSaved = props.onSaved;
+	const closeModal = props.onClick;
 
 	var [value, setValue] = useState(initialValue || '');
 
@@ -34,8 +35,8 @@ export default function SingleInputPopup(props) {
 	}
 
 	return (
-		<div className="single-input-overlay">
-			<div className="single-input-box">
+		<div className="single-input-overlay" onClick={closeModal}>
+			<div className="single-input-box" onClick={(e) => e.stopPropagation()}>
 				<h3>{title}</h3>
 				<label style={{display:'block', marginBottom:6}}>{label}</label>
 				<input className="single-input-field" value={value} onChange={function(e){ setValue(e.target.value); }} />

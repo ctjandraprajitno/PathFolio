@@ -73,9 +73,9 @@ function CareerPathwayMain() {
       ) : (
         <div>
           <section className="cp-overview">
-            <h2>Overview</h2>
+            <h2>Overview: {overview.targetJob || data.targetJob || ''}</h2>
             <div className="cp-overview-row">
-              <div className="cp-target">{overview.targetJob || data.targetJob || ''}</div>
+              <div className="cp-target"></div>
               <div className="cp-salary">
                 <span className="salary-min">{overview.minSalary}</span>
                 <span className="salary-arrow">→</span>

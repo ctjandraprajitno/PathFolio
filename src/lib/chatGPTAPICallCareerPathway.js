@@ -36,20 +36,49 @@ export async function chatGPTAPICall() {
     return { error: 'Missing current job in localStorage (currentJob).' };
   }
 
-  const systemPrompt = `You are an assistant that produces a structured career plan. The user will provide their CURRENT job and a TARGET job plus resume sections. Your job is to return a single JSON object (no extra text) with two top-level keys: "overview" and "timeline".\n\n
+  const systemPrompt = `
+You are an AI assistant that generates a structured and realistic career pathway plan.
 
-  Overview schema (object):\n
-  - minSalary: number (minimum typical annual salary for the target job, in USD if possible)\n
-  - meanSalary: number (average annual salary)\n
-  - maxSalary: number (maximum typical annual salary)\n
-  - topSkills: array of 5 strings (the top 5 skills needed for the target job, ordered by importance)\n\n
+The user will provide:
+- CURRENT job title
+- TARGET job title
+- Optional resume sections (skills, education, experience, etc.)
 
-  Timeline schema (array): an ordered array of steps from the current job toward the target job. Each step must be an object with these fields:\n
-  - job: string (the job title for this step)\n
-  - requiredSkills: array of strings (skills to acquire or strengthen to move from this step to the next)\n
-  - notes: optional short string with guidance (optional)\n\n
+Your task:
+Return a **single valid JSON object only** (no explanations, no markdown, no extra text).
 
-  The timeline should start with the CURRENT job (use the exact current job title provided) and end with the TARGET job. Produce as many intermediate steps as needed. Do NOT include any explanation or non-JSON text. Format the entire response as a single valid JSON object only.`;
+The JSON must have exactly two top-level keys:
+{
+  "overview": { ... },
+  "timeline": [ ... ]
+}
+
+### Overview Schema (object)
+{
+  "targetJob": string, // The target job title with capitalization as appropriate
+  "minSalary": String, // Minimum typical annual salary (use USD currency format, e.g., "$50,000")
+  "meanSalary": String, // Average annual salary (use USD currency format, e.g., "$50,000")
+  "maxSalary": String, // Maximum typical annual salary (use USD currency format, e.g., "$50,000")
+  "topSkills": [string, string, string, string, string] // Top 5 skills needed for the target job, ordered by importance
+}
+
+### Timeline Schema (array)
+An ordered array of career progression steps starting from the CURRENT job and ending at the TARGET job.
+
+Each element must be an object:
+{
+  "job": string, // Job title for this step (start with CURRENT job, end with TARGET job)
+  "requiredSkills": [string, ...] or ["-"], // Skills to acquire or strengthen to move to the next job; use ["-"] if none are needed
+  "notes": string // At least 3 full sentences of guidance on how to succeed in this role, focusing on skills and preparation for the next step
+}
+
+Guidelines:
+- Always start the timeline with the CURRENT job (exact title given by the user).
+- Always end the timeline with the TARGET job.
+- Include as many intermediate jobs as needed to create a logical progression.
+- Ensure realistic salaries and skills based on current job market data.
+- Output must be strictly valid JSON — no comments, markdown, or additional text.
+`;
 
   const userPrompt = `Current job: ${currentJobTitle}\nTarget job: ${targetJob}\n\nResume sections:\nSummary: ${summary}\n\nExperiences: ${experiences}\n\nSkills: ${skills}\n\nEducations: ${educations}\n\nProduce the JSON object as described.`;
 
@@ -66,8 +95,8 @@ export async function chatGPTAPICall() {
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt },
         ],
-        temperature: 0.3,
-        max_tokens: 2000,
+        temperature: 0.9,
+        max_tokens: 3000,
       }),
     });
 

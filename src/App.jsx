@@ -129,6 +129,7 @@ function App() {
           // advance to asking target
           setPopupStage(2);
         }}
+        onClick={function() {setPopupStage(0);}}
       />
 
       <SingleInputPopup
@@ -141,6 +142,7 @@ function App() {
           handleSingleInputSave(type, value);
           setPopupStage(0);
         }}
+        onClick={function() {setPopupStage(0);}}
       />
     </div>
   );
